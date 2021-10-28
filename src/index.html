@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Multi Arena</title>
+
+
+</head>
+
+<body>
+    <div id="initialScreen">
+        <h1 class="header">
+            <span class="m">M</span><span class="u">u</span><span class="l">l</span><span class="t">t</span><span class="i">i</span> <span class="a">A</span><span class="r">r</span><span class="e">e</span><span class="n">n</span><span class="a">a</span>
+        </h1>
+        <button type="submit" class="newGameBtn" id="newGameButton">
+            Create New Game
+        </button>
+        <h2 class="or">OR</h2>
+        <div class="form-group">
+            <input placeholder="Enter Game Code" id="gameCodeInput" />
+        </div>
+        <button type="submit" class="btn" id="joinGameButton">Join Game</button>
+    </div>
+    <button id="exitButton" class="exitButton">Exit</button>
+    <button id="instructionsButton" class="instructionsButton"> Instructions </button>
+    <h1 class="header2" id="header2"> Your game code is: <span id="gameCodeDisplay"></span></h1>
+    <div id="instructionsDiv">
+        <h1 class="instructionsHeader"> Instructions: </h1>
+        <ul class="instructionsList">
+            <li> To move use WASD buttons or arrow keys </li>
+        </br>
+            <li> First skill (void hole): press 1 button </li>
+        </br>
+            <li> Second skill (fire beam): press 2 button</li>
+        </br>
+            <li> Third skill (energy prison): press 3 button</li>
+        </br>
+            <li> Send game code to you friend and wait for him to join!</li>
+        </ul>
+    </div>
+
+    <canvas id="mainSection">
+    </canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"
+        integrity="sha512-WL6WGKMPBiM9PnHRYIn5YEtq0Z8XP4fkVb4qy7PP4vhmYQErJ/dySyXuFIMDf1eEYCXCrQrMJfkNwKc9gsjTjA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>

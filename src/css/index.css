@@ -1,0 +1,223 @@
+@font-face {
+    font-family: 'abaddon';
+    src:url('../vendor/Abaddon_Fonts_v1.2/Abaddon\ Bold.ttf') format('truetype');
+}
+
+html {
+    /*background: url("https://i.postimg.cc/zXMhTY6y/x.jpg");*/
+    /*background: url('https://i.postimg.cc/rFDHsS9r/pexels-johannes-plenio-1165982.jpg');*/
+    background: url('https://i.postimg.cc/7LyGjjL1/pexels-frank-cone-2961876.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    color:#fff;
+    font-family: 'abaddon';
+    background-color: #030d19;
+}
+
+#mainSection {
+    display: none;
+    width:1420px;
+    height: 760px;
+    margin: auto auto;
+    border: 3px solid #fff;
+    background:url('../images/waitingScreen.gif');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+#initialScreen {
+   
+}
+
+#newGameButton {
+    margin:0 auto;
+    height: 125px;
+    width:280px;
+    margin-left: 42%;
+    background: url("../images/button3.png");
+    background-size: cover;
+    background-position: center;
+    border: none;
+    font-size: 38px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+}
+
+#newGameButton:hover{
+    background: url("../images/button3P1.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+#gameCodeInput {
+    width:290px;
+    height: 45px;
+    margin-left: 41%;
+    margin-block: 65px;
+    border-radius: 10px;
+    border: 8px solid #95afc0;
+    font-size: 30px;
+    font-family: 'abaddon';
+    margin-block:45px;
+}
+
+#joinGameButton {
+    height: 105px;
+    width:230px;
+    margin-left: 43%;
+    background: url("../images/button1.png");
+    background-size: cover;
+    background-position: center;
+    border:none;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+}
+
+#joinGameButton:hover {
+    background: url("../images/button3P3.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+#instructionsButton{
+    height: 135px;
+    width:290px;
+    left:70%;
+    top:30%;
+    background: url("../images/button2.png");
+    background-size: cover;
+    background-position: center;
+    border:none;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+    position:absolute;
+}
+
+#instructionsDiv{
+    width:1150px;
+    height: 750px;
+    margin: auto auto;
+    margin-top: 65px;
+    background: #fd79a8;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    border: #000 3px solid;
+    border-radius: 9px;
+}
+
+.instructionsHeader{
+    padding-top:45px;
+    font-size: 72px;
+}
+
+.instructionsList {
+    font-size: 36px;
+    margin-top: 5px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#instructionsButton:hover{
+    background: url("../images/button2P2.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+.header {
+    margin-left: 38.8%;
+    font-size: 84px;
+    color: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);
+}
+
+.header2 {
+    margin-top: 25px;
+    margin-left: 43%;
+    width: 380px;
+    height:40px;
+    padding:auto;
+    display: none;
+}
+
+.or{
+    text-align: center;
+    font-size: 66px;
+    margin-top:50px;
+    margin-bottom: 0;
+}
+
+.exitButton {
+    right:50px;
+    height: 55px;
+    width:115px;
+    background: url('https://i.postimg.cc/J4pHGCX7/button4.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    font-size: 38px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+    position: absolute;
+    display: none;
+}
+
+.exitButton:hover{
+    background: url('https://i.postimg.cc/vByZ00nS/button4P.png');
+    background-size: cover;
+    background-position: center;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+
+.m{
+    color:#81ecec;
+}
+
+.u{
+    color:#74b9ff;
+}
+
+.l{
+    color:#a29bfe;
+}
+
+.t{
+    color:#fab1a0;
+}
+
+.i{
+    color:#ffeaa7;
+}
+
+.a{
+    color:#55efc4;
+}
+
+.r{
+    color:#fd79a8;
+}
+
+.e{
+    color:#ff5e57;
+}
+
+.n{
+    color:#0fbcf9;
+}
