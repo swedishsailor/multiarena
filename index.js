@@ -1,4 +1,4 @@
-const canvasBackground = "url('https://i.postimg.cc/pyNC3nMt/background.png')"
+const canvasBackground = "url('../images/background.png')"
 
 const skill2 = new Image;
 skill2.src = './images/skill2Anim.png';
@@ -21,13 +21,15 @@ let playerImg2 = new Image;
 let skill1Used = false;
 let increment = 0;
 
+const exhaust = 1000;
+
 /* Hotkeys */
 const skill1Hotkey = 49;
 const skill2Hotkey = 50;
 const skill3Hotkey = 51;
 
 
-const socket = io('https://multiarena-server.herokuapp.com/');
+const socket = io('http://localhost:3000');
 
 socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
@@ -50,6 +52,7 @@ const exitButton = document.getElementById('exitButton');
 const instructionsButton = document.getElementById('instructionsButton');
 const yourGameCodeString = document.getElementById('header2');
 const instructionsDiv = document.getElementById('instructionsDiv');
+const border = document.querySelector('.box');
 
 newGameBtn.addEventListener('click', newGame);
 joinGameBtn.addEventListener('click', joinGame);
@@ -94,6 +97,7 @@ function init() {
     gameScreen.style.display = "block";
     instructionsButton.style.display = "none";
     yourGameCodeString.style.display = "block";
+    border.style.display = "block";
 
     canvas = document.getElementById('mainSection');
     ctx = canvas.getContext('2d');
@@ -191,7 +195,7 @@ function drawPlayer(playerState, playerImage) {
 function drawSkill1(position, image) {
     frameTime2 = frameTime2 % 51;
     thisFrame2 = Math.round(frameTime2 / 15);
-    ctx.drawImage(image, 512 * thisFrame2, 0, 512, 512, position.x - 256, position.y - 256, 512, 512);
+    ctx.drawImage(image, 320 * thisFrame2, 0, 320, 320, position.x - 160, position.y - 160, 320, 320);
 }
 
 function drawSkill2(position, image) {
@@ -203,16 +207,25 @@ function drawSkill2(position, image) {
 function drawSkill3(position, image) {
     frameTime4 = frameTime4 % 51;
     thisFrame4 = Math.round(frameTime4 / 15);
-    ctx.drawImage(image, 256 * thisFrame4, 0, 256, 256, position.x - 128, position.y - 128, 256, 256);
+    ctx.drawImage(image, 256 * thisFrame4, 0, 256, 256, position.x - 128, position.y - 64, 256, 256);
 
 }
 
 function showCharacterStatus(state) {
     ctx.font = '600 36px abaddon';
     ctx.fillStyle = "#ff3f34";
-    ctx.fillText('Health: ' + Math.floor(state.players[playerNumber - 1].hp), 1210, 30);
+    ctx.fillRect(1210,5 , state.players[playerNumber - 1].hp * 2, 30);
+    ctx.fillText('Health ', 1110, 30);
+    ctx.fillStyle = "#fff";
+    ctx.fillText(Math.floor(state.players[playerNumber - 1].hp), 1290, 30);
     ctx.fillStyle = "#0fbcf9";
-    ctx.fillText('Mana: ' + Math.floor(state.players[playerNumber - 1].mana), 1210, 65);
+    ctx.fillRect(1210,45 , state.players[playerNumber - 1].mana, 30);
+    ctx.fillText('Mana ', 1115, 70);
+    ctx.fillStyle = "#fff";
+    ctx.fillText(Math.floor(state.players[playerNumber - 1].mana), 1290, 70);
+
+
+    
 
     thisPlayer = state.players[playerNumber - 1];
 }
