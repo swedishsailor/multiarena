@@ -1,4 +1,4 @@
-const canvasBackground = "url('../images/background.png')"
+const canvasBackground = "url('https://i.postimg.cc/pyNC3nMt/background.png')"
 
 const skill2 = new Image;
 skill2.src = './images/skill2Anim.png';
