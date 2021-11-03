@@ -1,9 +1,11 @@
 const canvasBackground = "url('https://i.postimg.cc/pyNC3nMt/background.png')";
 
-const skill2 = new Image;
+const skill2 = new Image();
 skill2.src = './images/skill2Anim.png';
-const skill3 = new Image;
+const skill3 = new Image();
 skill3.src = './images/skill3.png';
+const skill4 = new Image();
+skill4.src = './images/skill4.png';
 
 /* Frame and looping vars */
 let thisFrame = 0;
@@ -16,8 +18,8 @@ let thisFrame4 = 0;
 let frameTime4 = 0;
 let player;
 let thisPlayer;
-let playerImg = new Image;
-let playerImg2 = new Image;
+let playerImg = new Image();
+let playerImg2 = new Image();
 let skill1Used = false;
 let increment = 0;
 
@@ -27,6 +29,7 @@ const exhaust = 1000;
 const skill1Hotkey = 49;
 const skill2Hotkey = 50;
 const skill3Hotkey = 51;
+const skill4Hotkey = 52;
 
 
 const socket = io('https://multiarena-server.herokuapp.com/');
@@ -157,7 +160,7 @@ function paintGame(state) {
     /**
      * Skills drawing
      */
-    const skill1 = new Image;
+    const skill1 = new Image();
     skill1.src = './images/skill1.png';
     /* Count img animation frames every frame */
     frameTime3 += 2.15;
@@ -172,6 +175,9 @@ function paintGame(state) {
     });
     state.skill2.forEach(object => {
         drawSkill2(object, skill2);
+    });
+    state.skill4.forEach(object => {
+        drawSkill4(object, skill4);
     });
 
 
@@ -211,21 +217,26 @@ function drawSkill3(position, image) {
 
 }
 
+function drawSkill4(position, image) {
+    ctx.drawImage(image, position.x , position.y , 56, 192);
+
+}
+
 function showCharacterStatus(state) {
     ctx.font = '600 36px abaddon';
     ctx.fillStyle = "#ff3f34";
-    ctx.fillRect(1210,5 , state.players[playerNumber - 1].hp * 2, 30);
+    ctx.fillRect(1210, 5, state.players[playerNumber - 1].hp * 2, 30);
     ctx.fillText('Health ', 1110, 30);
     ctx.fillStyle = "#fff";
     ctx.fillText(Math.floor(state.players[playerNumber - 1].hp), 1290, 30);
     ctx.fillStyle = "#0fbcf9";
-    ctx.fillRect(1210,45 , state.players[playerNumber - 1].mana, 30);
+    ctx.fillRect(1210, 45, state.players[playerNumber - 1].mana, 30);
     ctx.fillText('Mana ', 1115, 70);
     ctx.fillStyle = "#fff";
     ctx.fillText(Math.floor(state.players[playerNumber - 1].mana), 1290, 70);
 
 
-    
+
 
     thisPlayer = state.players[playerNumber - 1];
 }
@@ -284,8 +295,11 @@ function minusHP(state, value) {
         increment += 0.3;
         ctx.font = '600 36px abaddon';
         ctx.fillStyle = "#ff3838";
-        ctx.fillText('-' + value, state.x - 30, state.y - 25 - increment);
-    }, 1 / 3600);
+        if (value !== 0) {
+            ctx.fillText('-' + value, state.x - 30, state.y - 25 - increment);
+        }
+        //}, 1 / 3600);
+    }, 1000 / 120); // This change determine if on "normal" server minusHp func should e better visible
     setTimeout(() => {
         clearInterval(displayDamage);
         increment = 0;
