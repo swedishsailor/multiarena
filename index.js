@@ -1,4 +1,4 @@
-const canvasBackground = "url('https://i.postimg.cc/pyNC3nMt/background.png')";
+const canvasBackground = "url('https://i.postimg.cc/L6RSJG8f/background.png')";
 
 const skill2 = new Image();
 skill2.src = './images/skill2Anim.png';
@@ -56,11 +56,14 @@ const instructionsButton = document.getElementById('instructionsButton');
 const yourGameCodeString = document.getElementById('header2');
 const instructionsDiv = document.getElementById('instructionsDiv');
 const border = document.querySelector('.box');
+const customizeButton = document.getElementById('customizeButton');
+const customizeDiv = document.getElementById('customizeDiv');
 
 newGameBtn.addEventListener('click', newGame);
 joinGameBtn.addEventListener('click', joinGame);
 exitButton.addEventListener('click', exit);
 instructionsButton.addEventListener('click', instructions);
+customizeButton.addEventListener('click', customize);
 
 
 let ctx;
@@ -92,6 +95,15 @@ function instructions() {
     initialScreen.style.display = "none";
     instructionsButton.style.display = "none";
     instructionsDiv.style.display = "flex";
+    customizeButton.style.display = "none";
+}
+
+function customize() {
+    exitButton.style.display = "block";
+    initialScreen.style.display = "none";
+    instructionsButton.style.display = "none";
+    customizeButton.style.display = "none";
+    customizeDiv.style.display = "block";
 }
 
 function init() {
@@ -251,7 +263,7 @@ function handleGameState(gameState) {
      * When both players are ready change the waiting screen to Background screen 
      */
     if (gameActive) {
-        gameScreen.style.background = canvasBackground;
+        gameScreen.style.cssText = 'display: block; background: ' + canvasBackground + ' no-repeat; background-size:cover; background-position:center;';
     }
     if (!gameActive) {
         return;

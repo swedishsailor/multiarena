@@ -25,6 +25,7 @@ html {
     background-size: cover;
     background-position: center;
     z-index: 0;
+    background-repeat: no-repeat;
 }
 
 #initialScreen {
@@ -92,8 +93,32 @@ html {
     height: 135px;
     width:290px;
     left:70%;
-    top:30%;
+    top:25%;
     background: url("../images/button2.png");
+    background-size: cover;
+    background-position: center;
+    border:none;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+    position:absolute;
+}
+
+#customizeButton:hover {
+    background: url("../images/button5P.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+#customizeButton{
+    height: 135px;
+    width:290px;
+    left:70%;
+    top:60%;
+    background: url("../images/button5.png");
     background-size: cover;
     background-position: center;
     border:none;
@@ -164,7 +189,8 @@ html {
 }
 
 .exitButton {
-    right:50px;
+    right:75px;
+    top:50px;
     height: 55px;
     width:115px;
     background: url('https://i.postimg.cc/J4pHGCX7/button4.png');
@@ -221,6 +247,82 @@ html {
 
 .n{
     color:#0fbcf9;
+}
+
+#customizeDiv {
+    display: none;
+    height: inherit;
+    width: inherit;
+    margin-top: 115px;
+}
+
+#box {
+    height: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 10%;
+
+}
+
+.customizeText{
+    text-align: center;
+    font-size: 49px;
+}
+
+.color1{
+    background:red;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    border-radius: 100%;
+    align-self: center;
+}
+.color2{
+    width: 180px;
+    height: 180px;
+    display: flex;
+    border-radius: 100%;
+    align-self: center;
+    background:blue;
+
+}
+.color3{
+    width: 180px;
+    height: 180px;
+    display: flex;
+    border-radius: 100%;
+    align-self: center;
+    background:indigo;
+}
+.color4{
+    background:forestgreen;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    border-radius: 100%;
+    align-self: center;
+}
+.color5{
+    background:salmon;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    border-radius: 100%;
+    align-self: center;
+}
+.color6{
+    background:aquamarine;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    border-radius: 100%;
+    align-self: center;
+}
+
+.color1:hover,.color2:hover,.color3:hover,.color4:hover,.color5:hover,.color6:hover {
+    opacity: 0.65;
 }
 
 .box{
