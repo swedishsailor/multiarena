@@ -36,7 +36,7 @@ const skill3Hotkey = 51;
 const skill4Hotkey = 52;
 
 
-const socket = io('http://localhost:3000');
+const socket = io('https://multiarena-server.herokuapp.com/');
 
 socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
