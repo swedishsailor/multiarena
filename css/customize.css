@@ -1,0 +1,93 @@
+/* CUSTOMIZE SECTION */
+#customizeDiv {
+    display: none;
+    height: inherit;
+    width: inherit;
+    margin-top: 45px;
+}
+
+#box {
+    height: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 10%;
+
+}
+
+.customizeText{
+    text-align: center;
+    font-size: 49px;
+}
+
+.battleGround{
+    width:256px;
+    height: 192px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    border: 2px solid #000;
+}
+
+.battleGround:hover{
+    opacity: 0.65;
+}
+
+.battleGround:nth-of-type(1){
+    background: url('https://i.postimg.cc/L6RSJG8f/background.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.battleGround:nth-of-type(2){
+    background: url('https://i.postimg.cc/8zK6NKGx/city-Backgroundzzz.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.battleGround:nth-of-type(3){
+    background: url('https://i.postimg.cc/3RHSFJqX/final-Night.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.color{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    border-radius: 100%;
+    align-self: center;
+    border: 5px solid #000;
+}
+
+.color:nth-of-type(1){
+    background:#5758BB;
+}
+.color:nth-of-type(2){
+    background:#6F1E51;
+}
+.color:nth-of-type(3){
+    background:#596275;
+}
+.color:nth-of-type(4){
+    background:#f8a5c2;
+}
+.color:nth-of-type(5){
+    background:#0be881;
+}
+.color:nth-of-type(6){
+    background:#e056fd;
+}
+
+.color:hover {
+    opacity: 0.65;
+}
+
+.underConstruction {
+    font-size: 108px;
+    position: absolute;
+    opacity: 0.7;
+    color:#000;
+    margin: auto 5%;
+}

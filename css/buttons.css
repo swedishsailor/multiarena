@@ -1,0 +1,142 @@
+
+#newGameButton {
+    margin:0 auto;
+    height: 125px;
+    width:280px;
+    margin-left: 42%;
+    background: url("../images/button3.png");
+    background-size: cover;
+    background-position: center;
+    border: none;
+    font-size: 38px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+}
+
+#newGameButton:hover{
+    background: url("../images/button3P1.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+#joinGameButton {
+    height: 105px;
+    width:230px;
+    margin-left: 43%;
+    background: url("../images/button1.png");
+    background-size: cover;
+    background-position: center;
+    border:none;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+}
+
+#joinGameButton:hover {
+    background: url("../images/button3P3.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+#instructionsButton{
+    height: 135px;
+    width:290px;
+    left:70%;
+    top:25%;
+    background: url("../images/button2.png");
+    background-size: cover;
+    background-position: center;
+    border:none;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+    position:absolute;
+}
+
+#customizeButton:hover {
+    background: url("../images/button5P.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+#customizeButton{
+    height: 135px;
+    width:290px;
+    left:70%;
+    top:60%;
+    background: url("../images/button5.png");
+    background-size: cover;
+    background-position: center;
+    border:none;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+    position:absolute;
+}
+
+#instructionsButton:hover{
+    background: url("../images/button2P2.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+.exitButton {
+    right:75px;
+    top:50px;
+    height: 55px;
+    width:115px;
+    background: url('https://i.postimg.cc/J4pHGCX7/button4.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    font-size: 38px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+    position: absolute;
+    display: none;
+}
+
+.exitButton:hover{
+    background: url('https://i.postimg.cc/vByZ00nS/button4P.png');
+    background-size: cover;
+    background-position: center;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+
+.exitButton2 {
+    right:75px;
+    top:50px;
+    height: 55px;
+    width:115px;
+    background: url('https://i.postimg.cc/J4pHGCX7/button4.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    font-size: 38px;
+    font-weight: 700;
+    font-family: 'abaddon';
+    color:#fff;
+    position: absolute;
+    display: none;
+}
+
+.exitButton2:hover{
+    background: url('https://i.postimg.cc/vByZ00nS/button4P.png');
+    background-size: cover;
+    background-position: center;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}

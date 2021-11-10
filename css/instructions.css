@@ -1,0 +1,28 @@
+/* INSTRUCTIONS SECTION */
+#instructionsDiv{
+    width:1150px;
+    height: 750px;
+    margin: auto auto;
+    margin-top: 65px;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 6%, rgba(253,29,29,1) 54%, rgba(252,176,69,1) 88%);;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    border: #000 3px solid;
+    border-radius: 9px;
+}
+
+.instructionsHeader{
+    padding-top:45px;
+    font-size: 72px;
+}
+
+.instructionsList {
+    font-size: 36px;
+    margin-top: 5px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

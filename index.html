@@ -6,12 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/customize.css">
+    <link rel="stylesheet" href="css/canvasAnimation.css">
+    <link rel="stylesheet" href="css/instructions.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Multi Arena</title>
 
 
 </head>
 
 <body>
+    <i class="fas fa-check" id="check"></i>
     <div id="initialScreen">
         <h1 class="header">
             <span class="m">M</span><span class="u">u</span><span class="l">l</span><span class="t">t</span><span class="i">i</span> <span class="a">A</span><span class="r">r</span><span class="e">e</span><span class="n">n</span><span class="a">a</span>
@@ -26,6 +32,7 @@
         <button type="submit" class="btn" id="joinGameButton">Join Game</button>
     </div>
     <button id="exitButton" class="exitButton">Exit</button>
+    <button id="exitButton2" class="exitButton2">Exit</button>
     <button id="instructionsButton" class="instructionsButton"> Instructions </button>
     <button id="customizeButton" class="customizeButton"> Customize </button>
     <h1 class="header2" id="header2"> Your game code is: <span id="gameCodeDisplay"></span></h1>
@@ -45,14 +52,21 @@
     </div>
     <div id="customizeDiv">
         <h1 class="customizeText">Choose your character color: </h1>
+        <p class="underConstruction"> Chaning colors still doesn't work :(</p>
         <div id="box">
-            <div class="color1"></div>
-            <div class="color2"></div>
-            <div class="color3"></div>
-            <div class="color4"></div>
-            <div class="color5"></div>
-            <div class="color6"></div>
+            <button class="color" value="#5758BB" id="1"></button>
+            <button class="color" value="#6F1E51" id="2"></button>
+            <button class="color" value="#596275" id="3"></button>
+            <button class="color" value="#f8a5c2" id="4"></button>
+            <button class="color" value="#0be881" id="5"></button>
+            <button class="color" value="#e056fd" id="6"></button>
         </div>
+        <h1 class="customizeText">Choose battleground: </h1>
+        <div id="box">
+        <button class="battleGround" value="https://i.postimg.cc/L6RSJG8f/background.png"></button>
+        <button class="battleGround" value="https://i.postimg.cc/8zK6NKGx/city-Backgroundzzz.png"></button>
+        <button class="battleGround" value="https://i.postimg.cc/3RHSFJqX/final-Night.png"></button>
+    </div>
     </div>
 
     <div class="box">

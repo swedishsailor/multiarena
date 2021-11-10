@@ -1,4 +1,5 @@
-const canvasBackground = "url('https://i.postimg.cc/L6RSJG8f/background.png')";
+
+let canvasBackground = "url('https://i.postimg.cc/L6RSJG8f/background.png')";
 
 const skill2 = new Image();
 skill2.src = './images/skill2Anim.png';
@@ -22,6 +23,9 @@ let playerImg = new Image();
 let playerImg2 = new Image();
 let skill1Used = false;
 let increment = 0;
+let playerColor = 0;
+let playerNumber;
+let playerId = makeid(4);
 
 const exhaust = 1000;
 
@@ -32,7 +36,7 @@ const skill3Hotkey = 51;
 const skill4Hotkey = 52;
 
 
-const socket = io('https://multiarena-server.herokuapp.com/');
+const socket = io('http://localhost:3000');
 
 socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
@@ -43,6 +47,7 @@ socket.on('tooManyPlayers', handleTooManyPlayers);
 socket.on('skill1', drawSkill1);
 socket.on('skill2', drawSkill2);
 socket.on('minusHp', minusHP);
+socket.on('playersColors', playersColors);
 
 /* Important query selectors */
 const gameScreen = document.getElementById('mainSection');
@@ -52,24 +57,44 @@ const joinGameBtn = document.getElementById('joinGameButton');
 const gameCodeInput = document.getElementById('gameCodeInput');
 const gameCodeDisplay = document.getElementById('gameCodeDisplay');
 const exitButton = document.getElementById('exitButton');
+const exitButton2 = document.getElementById('exitButton2');
 const instructionsButton = document.getElementById('instructionsButton');
 const yourGameCodeString = document.getElementById('header2');
 const instructionsDiv = document.getElementById('instructionsDiv');
 const border = document.querySelector('.box');
 const customizeButton = document.getElementById('customizeButton');
 const customizeDiv = document.getElementById('customizeDiv');
+const check = document.getElementById('check');
+const colors = document.querySelectorAll('.color');
+const battleground = document.querySelectorAll('.battleGround');
+
 
 newGameBtn.addEventListener('click', newGame);
 joinGameBtn.addEventListener('click', joinGame);
 exitButton.addEventListener('click', exit);
+exitButton2.addEventListener('click', exit2);
 instructionsButton.addEventListener('click', instructions);
 customizeButton.addEventListener('click', customize);
+colors.forEach(color =>{
+    color.addEventListener('click', function(){
+        playerColor = color.id;
+        playersColors();
+        apply();
+    });
+});
+battleground.forEach(background => {
+    background.addEventListener('click', function(){
+        canvasBackground = "url('"+background.value+"')";
+        apply();
+    });
+});
 
 
 let ctx;
 let canvas;
-let playerNumber;
 let gameActive = false;
+
+//console.log(playerId);
 
 
 function newGame() {
@@ -84,10 +109,38 @@ function joinGame() {
 }
 
 function exit() {
-    /*initialScreen.style.display = "block";
+    initialScreen.style.display = "block";
     gameScreen.style.display = "none";
-    exitButton.style.display = "none";*/
+    exitButton.style.display = "none";
+    instructionsButton.style.display = "block";
+    customizeButton.style.display = "block";
+    customizeDiv.style.display = "none";
+    instructionsDiv.style.display = "none";
+}
+
+function exit2(){
     window.location.reload();
+}
+
+function apply(){
+    check.style.display = "block";
+        setTimeout(() => {
+            check.style.display = "none";
+        }, 350);
+}
+
+function playersColors(){
+    let color;
+    let number;
+    number = playerId;
+    if (playerColor !== undefined){
+    color = playerColor;
+    console.log(payload, payload.color);
+    socket.emit('playersColors', color, number);
+    } else if (playerColor === undefined || playerColor === null){
+        color = 0;
+        socket.emit('playersColors', color, number);
+    }
 }
 
 function instructions() {
@@ -106,19 +159,35 @@ function customize() {
     customizeDiv.style.display = "block";
 }
 
+function makeid(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUWVXYZabcdefghijklmnopqrstuwvxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i =0; i<length; i++){
+        result += characters.charAt(Math.floor(Math.random()* charactersLength));
+    }
+    return result;
+}
+
 function init() {
-    exitButton.style.display = "block";
+    exitButton2.style.display = "block";
     initialScreen.style.display = "none";
     gameScreen.style.display = "block";
     instructionsButton.style.display = "none";
     yourGameCodeString.style.display = "block";
     border.style.display = "block";
+    customizeButton.style.display = "none";
 
     canvas = document.getElementById('mainSection');
     ctx = canvas.getContext('2d');
 
+    if (window.screen.availHeight >= 825 && window.screen.availWidth >= 1527){
     canvas.width = 1420;
     canvas.height = 760;
+    } else {
+        canvas.width = 1220;
+        canvas.height = 610;
+    }
 
     document.addEventListener('keydown', keydown);
     document.addEventListener('keyup', keyup);
@@ -157,7 +226,6 @@ function keyup(e) {
 
 function paintGame(state) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     //
     //* Showing up players radius to see if hitboxes are fine
     //
@@ -237,15 +305,15 @@ function drawSkill4(position, image) {
 function showCharacterStatus(state) {
     ctx.font = '600 36px abaddon';
     ctx.fillStyle = "#ff3f34";
-    ctx.fillRect(1210, 5, state.players[playerNumber - 1].hp * 2, 30);
-    ctx.fillText('Health ', 1110, 30);
+    ctx.fillRect(canvas.width - 210, 5, state.players[playerNumber - 1].hp * 2, 30);
+    ctx.fillText('Health ', canvas.width - 310, 30);
     ctx.fillStyle = "#fff";
-    ctx.fillText(Math.floor(state.players[playerNumber - 1].hp), 1290, 30);
+    ctx.fillText(Math.floor(state.players[playerNumber - 1].hp), canvas.width - 130, 30);
     ctx.fillStyle = "#0fbcf9";
-    ctx.fillRect(1210, 45, state.players[playerNumber - 1].mana, 30);
-    ctx.fillText('Mana ', 1115, 70);
+    ctx.fillRect(canvas.width - 210, 45, state.players[playerNumber - 1].mana, 30);
+    ctx.fillText('Mana ', canvas.width - 305, 70);
     ctx.fillStyle = "#fff";
-    ctx.fillText(Math.floor(state.players[playerNumber - 1].mana), 1290, 70);
+    ctx.fillText(Math.floor(state.players[playerNumber - 1].mana), canvas.width - 130, 70);
 
 
 
@@ -311,7 +379,7 @@ function minusHP(state, value) {
             ctx.fillText('-' + value, state.x - 30, state.y - 25 - increment);
         }
         //}, 1 / 3600);
-    }, 1000 / 120); // This change determine if on "normal" server minusHp func should e better visible
+    }, 1000 / 240); // This change determine if on "normal" server minusHp func should e better visible
     setTimeout(() => {
         clearInterval(displayDamage);
         increment = 0;
